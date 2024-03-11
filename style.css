@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.playerHand {
+    display: flex;
+    align-items: center;
+    /* Flex direction will be adjusted dynamically via JS */
+}
+
+.top, .bottom {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right, .left {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Flex direction set to column for vertical stacking by JS when needed */
+}
+
+.top { top: 5vh; }
+.bottom { bottom: 5vh; }
+.right { right: 5vw; }
+.left { left: 5vw; }
+
+label, input, button {
+    margin: 5px;
+}
+
+.card {
+    width: 100px; /* Adjust based on your preference */
+    height: 140px; /* Set a fixed height for consistent card size */
+    margin-right: -80px; /* Overlap for horizontal stacking */
+    margin-bottom: 0; /* Reset for vertical stacking */
+    transition: margin 0.3s ease; /* Smooth transition for interactive hover effect (optional) */
+    z-index: 1; /* Ensure stacking order */
+    position: relative; /* Enable z-index */
+}
+
+.card:hover {
+    margin-right: 0; /* Expand cards on hover for better visibility */
+    z-index: 10; /* Ensure the hovered card is above others */
+}
+
+/* Adjustments for vertical stacking */
+.vertical .card {
+    margin-right: 0; /* Reset horizontal margin for vertical stacking */
+    margin-bottom: -105px; /* Adjust for 25% visibility in vertical stacking */
+}
+
+.vertical .card:last-child {
+    margin-bottom: 0; /* Ensure the last card doesn’t overlap anything below it */
+}
